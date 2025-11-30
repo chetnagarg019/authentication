@@ -1,49 +1,4 @@
-// import express from 'express' //express app hai 
-// import dotenv from 'dotenv' //Backend me aapko kuch values secret rakhni hoti hain—jaise: API key passwords 
-// import cors from 'cors' // Cross-Origin Resource Sharing 
-// import authRoutes from './routes/authRoutes.js'
 
-// dotenv.config() //file ko load krne ke loye hume function call ki need hoti hai 
-// const app = express()
-// app.use(cors()); // allow requests from frontend
-// app.use(express.json()) // to read json data
-
-// //middleware
-// // app.use('/api',authRoutes);
-// app.use('/api/auth', authRoutes);
-
-
-// app.get('/',(req,res)=>{
-//     res.send('Server chal rha hai bhai');
-// })
-
-// const PORT = process.env.PORT || 3000;
-// app.listen(PORT,()=>{
-//     console.log(`The server is running on http://localhost:${PORT}`);
-// })
-
-// import express from 'express';
-// import dotenv from 'dotenv';
-// import cors from 'cors';
-// import authRoutes from './routes/authRoutes.js';
-
-// dotenv.config();
-// const app = express();
-
-// app.use(cors()); 
-// app.use(express.json());
-
-// // middleware
-// app.use('/api/auth', authRoutes);
-
-// app.get('/', (req, res) => {
-//     res.send('Server chal rha hai bhai');
-// });
-
-// const PORT = process.env.PORT || 3000;
-// app.listen(PORT, () => {
-//     console.log(`The server is running on http://localhost:${PORT}`);
-// });
 
 
 import express from 'express';
