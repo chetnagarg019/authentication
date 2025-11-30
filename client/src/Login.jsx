@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import axios from "axios";
+
 
 function Login() {
   const [formData, setFormData] = useState({
@@ -11,10 +13,28 @@ function Login() {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log("Login Data:", formData);
-  };
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
+  //   console.log("Login Data:", formData);
+  // };
+
+  const handleSubmit = async (e) => {
+  e.preventDefault();
+
+  try {
+    const res = await axios.post(
+      "http://localhost:5000/api/login",
+      formData
+    );
+
+    alert(res.data.message); // Login successful
+    console.log("Login Response:", res.data);
+
+  } catch (error) {
+    alert(error.response?.data?.message || "Login failed");
+    console.error("Login Error:", error);
+  }
+};
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-100 dark:bg-gray-900 p-4">

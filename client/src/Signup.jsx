@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import axios from "axios";
+
 
 export default function Signup() {
   const [formData, setFormData] = useState({
@@ -7,15 +9,23 @@ export default function Signup() {
     email: "",
     password: "",
   });
+const handleSubmit = async (e) => {
+  e.preventDefault();
 
-  const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
+  try {
+    const res = await axios.post(
+      "http://localhost:5000/api/signup",
+      formData
+    );
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log("Signup Data:", formData); // we will call api
-  };
+    alert(res.data.message); // Signup successful
+    console.log("Signup Response:", res.data);
+
+  } catch (error) {
+    alert(error.response?.data?.message || "Signup failed");
+    console.error("Signup Error:", error);
+  }
+};
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-100 dark:bg-gray-900 p-4">
